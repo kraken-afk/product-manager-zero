@@ -1,8 +1,6 @@
 <?php
 
-use LDAP\Result;
-
-$mysql = mysqli_connect("127.0.0.1", "root", "", "data_barang", 3308);
+$mysql = mysqli_connect("sql213.epizy.com", "epiz_31731430", "CHVK63dXqPoPFZ", "epiz_31731430_pm_zero", 3306);
 
 function getProduct(string $query): array
 {
