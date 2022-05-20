@@ -8,6 +8,7 @@
   flex-direction: column;
 
   margin: 1.2rem 0;
+  max-height: max-content !important;
 }
 
 .input-wrapper label {
@@ -25,12 +26,12 @@
   max-width: 400px;
 }
 
-.input-wrapper input:focus,
+/* .input-wrapper input:focus,
 .input-wrapper select:focus,
 .input-wrapper textarea:focus {
   border-color: rgba(0, 0, 0, 1);
   border-width: 2px;
-}
+} */
 
 .input-wrapper select {
   font-size: 1rem;
@@ -54,10 +55,11 @@
 
 .input-number {
   display: grid;
-  grid-template-columns: -webkit-min-content -webkit-min-content;
+  grid-template-columns: -webkit-min-content -webkit-min-content !important;
   grid-template-columns: min-content min-content;
   gap: 1rem;
   align-items: center;
+  max-width: 400px !important;
 }
 
 .input-wrapper input[type="number"] {

@@ -10,7 +10,7 @@
 }
 
 .table {
-  background-color: #000;
+  /* background-color: #000; */
   margin-inline: auto;
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
@@ -55,7 +55,7 @@
   align-items: center;
 }
 
-.action span {
+/* .action span {
   color: #fff;
   text-decoration: none;
   padding: .3rem .5rem;
@@ -70,6 +70,7 @@
 .action span:hover {
   opacity: 1;
 }
+*/
 
 .action span:not(.action a:last-child) {
   margin-right: .3rem;

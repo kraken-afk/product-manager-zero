@@ -39,7 +39,9 @@ function getPasswordHash(String $username)
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product manager | Login</title>
   <style>
-    <?php require_once "./styles/global.css" ?><?php require_once "./styles/login-style.css" ?>
+    <?php require_once "./styles/global.css" ?>
+    <?php require_once "./styles/login-style.css" ?>
+    <?php require_once "./lib/bootstrap/css/bootstrap.css" ?>
   </style>
 </head>
 
@@ -49,19 +51,21 @@ function getPasswordHash(String $username)
     <form method="POST">
       <div class="input-wrapper">
         <label for="username">Username</label>
-        <input name="username" required type="text" id="username">
+        <input name="username" required type="text" id="username" class="form-control">
         <?php
         if ($msg) echo "<small class=\"err-msg\">*Use the correct password or username</small>";
         ?>
       </div>
       <div class="input-wrapper">
         <label for="password">Password</label>
-        <input name="password" required type="text" id="password">
+        <input name="password" required type="text" id="password" class="form-control">
         <small data-show="0" id="show-password-btn" class="show-btn">Show password</small>
       </div>
       <button name="submit" id="submit-btn" class="submit-btn">Login</button>
     </form>
   </div>
+
+  <span class="m-auto h5 mt-3 mb-1">Created by <a href="https://kraken-afk.github.io">Kraken-afk</a></span>
   <script src="./js/_login.js"></script>
 </body>
 

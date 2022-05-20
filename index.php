@@ -70,25 +70,28 @@ endif;
     require_once "./styles/global.css";
     require_once "./styles/index.css";
     require_once "./styles/form-style.css";
+    require_once "./lib/bootstrap/css/bootstrap.css";
     ?>
   </style>
 </head>
 
-<body>
+<body class="container">
 
   <?php require_once "./components/navbar.php";
   navBar("home"); ?>
 
   <main class="main">
-    <h1 class="directories">Home</h1>
-    <span class="greet">Hello <?= explode(" ", $_SESSION["login"])[1] ?>, Have a good day 👋</span>
-    <a href="./functions/logout.php" class="logout">Logout</a>
+    <h1 class="h1">Home</h1>
+    <div class="d-inline-flex flex-column">
+      <span class="greet h2">Hello <?= explode(" ", $_SESSION["login"])[1] ?>, Have a good day 👋</span>
+      <a href="./functions/logout.php" class="btn btn-danger mb-5 mt-2 w-25">Logout</a>
+    </div>
 
-    <div class="table-container">
-      <table class="table">
-        <thead class="thead">
+    <div class="table-container container">
+      <table class="table table-bordered">
+        <thead class="table-primary">
           <tr>
-            <th>No</th>
+            <th class="text-center">No</th>
             <th>Name</th>
             <th>category</th>
             <th>description</th>
@@ -98,7 +101,7 @@ endif;
           </tr>
         </thead>
 
-        <tbody class="tbody">
+        <tbody class="table-striped table-hover">
           <?php
           $esc = fn ($str) => htmlspecialchars($str);
           foreach ($products as $product) :
@@ -106,15 +109,15 @@ endif;
             echo
             <<<HTML
           <tr>
-            <td>$counter</td>
+            <td class="text-center fw-bold">$counter</td>
             <td>{$esc($product["name"])}</td>
             <td>{$esc($product["category"])}</td>
-            <td class="desc">{$esc($product["description"])}</td>
+            <td class="text-break">{$esc($product["description"])}</td>
             <td>{$esc($product["price"])}</td>
             <td>{$esc($product["stock"])}</td>
             <td class="action">
-              <span id="edit-btn" title="Edit">🔧</span>
-              <span id="delete-btn" title="Delete">❌</span>
+              <span class="btn btn-danger" id="edit-btn" title="Edit">🔧</span>
+              <span class="btn btn-danger" id="delete-btn" title="Delete">❌</span>
             </td>
           </tr>
           HTML;
@@ -130,10 +133,17 @@ endif;
 
   <div id="edit-modal" class="edit-modal disable">
     <?php require_once "./components/form.php" ?>
+    <script id="temp">
+      const input = document.querySelector(".unique");
+      input.disabled = true;
+      
+      document.getElementById("temp").remove();
+    </script>
   </div>
 
+  <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./js/_add-product.js" type="module"></script>
-  <script src="./js/_index.js" type="module"></script>
+  <script src="./js/_index.js"></script>
 </body>
 
 </html>

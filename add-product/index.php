@@ -76,19 +76,22 @@ function isExist(string $name): bool
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add product</title>
   <style>
-    <?php require_once "../styles/global.css"; ?><?php require_once "../styles/form-style.css"; ?>
+    <?php require_once "../styles/global.css"; ?>
+    <?php require_once "../styles/form-style.css"; ?>
+    <?php require_once "../lib/bootstrap/css/bootstrap.css"; ?>
   </style>
 </head>
 
-<body>
+<body class="container">
   <?php require_once "../components/navbar.php";
   navBar("add-product"); ?>
 
   <main class="main">
-    <h1 class="directories">Add Products</h1>
+    <h1 class="h1">Add Product</h1>
 
     <?php require_once "../components/form.php" ?>
   </main>
+  <script src="../lib/bootstrap/js/bootstrap.js"></script>
   <script src="../js/_add-product.js" type="module"></script>
 </body>
 

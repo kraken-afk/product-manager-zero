@@ -13,21 +13,32 @@ function navBar(string $path): void
   
   echo 
   <<<HTML
-    <header class="header">
-    <span class="logo">
-      CRUD APP
-    </span>
-    <nav class="nav">
-      <a href="{$attr[0]}" class="nav-item">Home</a>
-      <a href="{$attr[1]}" class="nav-item">Add Product</a>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="$attr[0]">CRUD APP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="$attr[0]">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="$attr[1]">Add Product</a>
+            </li>
+          </ul>
+        </div>
+      </div>
       <script id="temp">
-        document.querySelectorAll(".nav a").forEach(e => {
+        document.querySelectorAll(".navbar-nav a").forEach(e => {
           if (e.getAttribute("href") === "#") e.classList.add("active");
           if (e.classList.contains("active"))
             document.getElementById("temp").remove();
         })
       </script>
     </nav>
-  </header>
   HTML;
 }
+
+

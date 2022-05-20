@@ -1,32 +1,32 @@
 const editModal = document.getElementById("edit-modal");
+const deleteBtn = document.getElementById("delete-btn");
+const editBtn = document.getElementById("edit-btn");
 
 createButton().addEventListener("click", (e) => {
   e.preventDefault();
   editModal.classList.replace("enable", "disable");
 })
 
-document.addEventListener("click", (e) => {
-  if (e.target.id === "edit-btn") {
-    putData(getRowData(e.target));
-    editModal.classList.replace("disable", "enable");
-  } else if
-  (e.target.id === "delete-btn") {
-    if (window.confirm(`Are you sure want to delete this row ?`)) {
-      const rowName = e.target.parentElement.parentElement
-      .querySelector("td:nth-child(2)").textContent;
-      const host = document.location.origin;
-      const path = document.location.pathname;
-      
-      document.location.href = `${host}${path}?truncate=${rowName}`;
-    } else
-      return;
-  }
-})
-
 editModal.addEventListener("click", (e) => {
   if (e.target.id !== editModal.id) return;
   editModal.classList.replace("enable", "disable");
 })
+
+editBtn.addEventListener("click", () => {
+  putData(getRowData(e.target));
+  editModal.classList.replace("disable", "enable");
+  console.log("object");
+})
+
+deleteBtn.addEventListener("click", () => {
+  if (window.confirm(`Are you sure want to delete this row ?`)) {
+    const rowName = e.target.parentElement.parentElement
+      .querySelector("td:nth-child(2)").textContent;
+    const host = document.location.origin;
+    const path = document.location.pathname;
+
+    document.location.href = `${host}${path}?truncate=${rowName}`;
+}});
 
 
 function createButton() {
